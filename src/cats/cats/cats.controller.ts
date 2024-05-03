@@ -1,9 +1,10 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
+import { CreateCatDto } from './create-cat.dto';
 
 @Controller('cats')
 export class CatsController {
     @Post()
-    create(): string{
+    async create(@Body() createCatDto:CreateCatDto): Promise<string>{
         return 'This action adds a new cat';
     }
 
